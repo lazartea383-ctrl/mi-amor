@@ -63,7 +63,7 @@ const writingArea = document.getElementById("writingArea");
 const bubble = document.getElementById("bubble");
 
 const letters = ["M", "i","A", "m", "o", "r"];
-const positions = ["60%", "62%", "64%", "66%", "68%", "70%"];
+const positions = ["40%", "44%", "48%", "52%", "56%", "60%"];
 
 let index = 0;
 
@@ -95,6 +95,4 @@ function showBubble() {
 }
 
 setTimeout(writeNext, 800);
-
-
 
