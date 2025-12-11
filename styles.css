@@ -1,0 +1,159 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background: #ffd7e1;
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* fondo de corazones */
+#heartsCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.container {
+    text-align: center;
+    position: relative;
+    width: 100%;
+}
+
+/* pizarra */
+.board {
+    width: 90vw;
+    max-width: 450px;
+    height: 150px;
+    background: white;
+    margin: 0 auto;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+/* letras */
+.writing-area {
+    position: absolute;
+    top: 50%;
+    left: 17%;
+    transform: translateY(-50%);
+    font-size: 4.4rem;
+    color: #ff5f9e;
+    display: flex;
+    gap: 12px;
+}
+
+/* osito */
+.bear {
+    position: absolute;
+    left: 6%;
+    top: calc(58% + 40px); /* más abajo para que no moleste en mobile */
+    font-size: 3rem;
+    transition: left 1s ease, transform 0.3s ease;
+}
+
+.bear.writing {
+    transform: rotate(-10deg);
+}
+
+/* BURBUJA estilo manga (derecha del osito) */
+.bubble {
+    position: absolute;
+    top: -5px;
+    left: 115%;
+    background: white;
+    padding: 10px 18px;
+    border-radius: 15px;
+    border: 2px solid #333;
+    font-size: 1.1rem;
+    white-space: nowrap;
+    display: none;
+
+    clip-path: polygon(
+        10% 0%, 100% 0%, 100% 80%,
+        65% 80%, 55% 100%, 45% 80%,
+        0% 80%, 0% 0%
+    );
+}
+
+/* ===================== */
+/*     RESPONSIVE        */
+/* ===================== */
+
+@media (max-width: 600px) {
+
+    .board {
+        height: 120px;
+    }
+
+    .writing-area {
+        font-size: 1.8rem;
+        gap: 8px;
+        left: 6%;
+    }
+
+    .bear {
+        font-size: 2.3rem;
+        top: calc(55% + 30px);
+        left: 5%;
+    }
+
+    .bubble {
+        font-size: 0.9rem;
+        left: 105%;
+        top: -10px;
+        max-width: 130px;
+        white-space: normal; /* permite salto de línea */
+    }
+}
+
+@media (max-width: 420px) {
+
+    .board {
+        height: 110px;
+    }
+
+    .writing-area {
+        font-size: 1.6rem;
+        gap: 6px;
+        top: 42%;
+        left: 8%;
+    }
+
+    .bear {
+        font-size: 2rem;
+        top: calc(55% + 25px);
+    }
+
+    .bubble {
+        font-size: 0.8rem;
+        left: 100%;
+        max-width: 110px;
+    }
+}
+
+@media (max-width: 350px) {
+
+    .writing-area {
+        font-size: 1.4rem;
+        gap: 4px;
+    }
+
+    .bear {
+        font-size: 1.8rem;
+    }
+
+    .bubble {
+        font-size: 0.75rem;
+        max-width: 100px;
+        left: 95%;
+    }
+}
